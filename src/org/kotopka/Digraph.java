@@ -28,6 +28,9 @@ public class Digraph {
 	}
 
 	public void addEdge(int v, int w) {
+		validateVertex(v);
+		validateVertex(w);
+
 		indegree[w]++;
 		adj[v].add(w);
 		edgeCount++;
@@ -43,16 +46,19 @@ public class Digraph {
 
 	public int outdegree(int v) {
 		validateVertex(v);
+
 		return adj[v].size();
 	}
 
 	public int indegree(int v) {
 		validateVertex(v);
+
 		return indegree[v];
 	}
 
 	public Iterable<Integer> adj(int v) {
 		validateVertex(v);
+
 		return adj[v];
 	}
 
