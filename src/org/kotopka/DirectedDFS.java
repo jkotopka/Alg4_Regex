@@ -10,9 +10,10 @@ public class DirectedDFS {
 
     public DirectedDFS(Digraph G, int s) {
         if (G == null) throw new IllegalArgumentException("Digraph G cannot be null");
-        if (s < 0) throw new IllegalArgumentException("Invalid source " + s);
+        if (s < 0 || s >= G.V()) throw new IllegalArgumentException("Invalid source " + s);
 
         this.marked = new boolean[G.V()];
+
         dfs(G, s);
     }
 
@@ -43,7 +44,7 @@ public class DirectedDFS {
     }
 
     public boolean marked(int v) {
-        if (v < 0) throw new IllegalArgumentException("Invalid vertex " + v);
+        if (v < 0 || v >= marked.length) throw new IllegalArgumentException("Invalid vertex " + v);
 
         return marked[v];
     }
