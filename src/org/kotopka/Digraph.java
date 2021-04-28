@@ -39,7 +39,7 @@ public class Digraph {
 	public int E() { return edgeCount; }
 
 	private void validateVertex(int vertex) {
-		if (vertex < 0 || vertex > vertexCount) {
+		if (vertex < 0 || vertex >= vertexCount) {
 			throw new IllegalArgumentException("Invalid vertex: " + vertex);
 		}
 	}
