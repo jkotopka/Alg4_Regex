@@ -9,10 +9,9 @@ public class GREP {
     public static void main(String[] args) {
         String regexp = "(.*" + args[0] + ".*)";
         NFA nfa = new NFA(regexp);
-        List<String> input;
 
         try {
-            input = Files.readAllLines(Paths.get(args[1]));
+            List<String> input = Files.readAllLines(Paths.get(args[1]));
 
             for (String s : input) {
                 if (nfa.recognizes(s)) {
